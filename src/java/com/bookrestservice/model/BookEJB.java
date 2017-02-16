@@ -25,12 +25,16 @@ public class BookEJB {
         return bookFacade.getAllBooks();
     }
     
-    public Book getBookById(long id){
+    public Book getBookById(String id){
         return bookFacade.getBookById(id);
     }
     
     public void createBook(Book book){
         bookFacade.createBook(book);
+    }
+    
+    public void deleteBook(Book book){
+        bookFacade.deleteBook(book);
     }
     
     

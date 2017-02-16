@@ -39,7 +39,7 @@ public class BookFacade extends AbstractFacade{
         em.persist(book);
     }
     
-    public Book getBookById(long id){
+    public Book getBookById(String id){
         List<Book> toReturn = null;
         toReturn = em.createNamedQuery(Book.FIND_BY_ID, Book.class).setParameter("id", id).getResultList();
         if(!toReturn.isEmpty()){
@@ -47,6 +47,10 @@ public class BookFacade extends AbstractFacade{
         }else{
             return null;
         }
+    }
+    
+    public void deleteBook(Book book){
+        em.detach(book);
     }
     
 }
